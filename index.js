@@ -198,14 +198,13 @@ client.connect(err => {
                 res.send(result.insertedCount > 0)
             })
     })
-    // app.get('/makeAdmin', (req, res) => {
-        
-    //     makeAdminCollection.find({ email:  req.params.email})
-    //     console.log(email)
-    //         .toArray((err, documents) => {
-    //             res.send(documents);
-    //         })
-    // });
+    app.delete('/deleteEvent/:id', (req, res) => {
+        bookCollection.deleteOne({_id: req.params.id})
+        .then( (result) => {
+          console.log(result)
+        })
+    
+      })
 
 });
 
